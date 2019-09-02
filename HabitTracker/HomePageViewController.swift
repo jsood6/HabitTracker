@@ -14,6 +14,7 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
     @IBOutlet weak var habitsTableView: UITableView!
     var db: Firestore!
     var habitsDict: NSDictionary = [:]
+    var habitNames: NSMutableArray = []
     var habitsColorArr : [Int] = [0xFFB35B, 0xB1DCE3, 0xFF5610, 0x3C5AD8, 0xE4B15B, 0xBAAAB3, 0xE06B92]
     
     
@@ -42,6 +43,10 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
             if let document = document, document.exists {
                 self.habitsDict = document.get("habits") as! NSDictionary
                 print("habits dict: \(self.habitsDict)")
+                for i in Array(self.habitsDict) {
+                    self.habitNames.add("\(i.key)")
+                }
+                
                 self.habitsTableView.reloadData()
                 //let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 //print("Document data: \(dataDescription)")
@@ -66,7 +71,15 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         cell.habitName.text = Array(habitsDict)[indexPath.row].key as! String
         print("key is....." , Array(habitsDict)[indexPath.row].key)
         print("value is....." , Array(habitsDict)[indexPath.row].value)
-        cell.completionPercentLabel.text = Array(habitsDict)[indexPath.row].value as! String
+        var keyVal = habitsDict.value(forKey: Array(habitsDict)[indexPath.row].key as! String) as! NSDictionary
+        var goalVal = keyVal.value(forKey: "goal") as! String
+        
+        let cv = Float(keyVal.value(forKey: "completionValue") as! String)
+        let gv = Float(goalVal)
+        var completionVal = cv!/gv!
+        completionVal = completionVal * 100
+        cell.completionPercentLabel.text = String(completionVal)
+        
         cell.backgroundColor = UIColor(rgb: habitsColorArr[indexPath.row])
         cell.layoutMargins = UIEdgeInsets(top: 20.0, left: 5.0, bottom: 20.0, right: 5.0)
        cell.layer.cornerRadius = 10.0
@@ -83,6 +96,42 @@ class HomePageViewController: UIViewController, UITableViewDataSource, UITableVi
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let index = self.habitsTableView.indexPathForSelectedRow{
+            self.habitsTableView.deselectRow(at: index, animated: true)
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        fetchHabits()
+        habitsTableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "HabitDetailSegue"){
+        let cell = sender as! UITableViewCell
+        if let indexPath = habitsTableView.indexPath(for: cell){
+            //            let movie = Movie(dictionary: movies[indexPath.row] )
+            
+            
+            let detailViewController = segue.destination as! HabitsDetailViewController
+            
+            print("++++++++++++++++++++", self.habitsDict[indexPath.row])
+            print("====================", Array(habitsDict)[indexPath.row].key)
+            detailViewController.habitNameStr = Array(habitsDict)[indexPath.row].key as! String
+            
+            
+            var keyVal = habitsDict.value(forKey: Array(habitsDict)[indexPath.row].key as! String) as! NSDictionary
+            var goalVal = keyVal.value(forKey: "goal") as! String
+            
+           detailViewController.goalValStr = goalVal
+            
+            }
+            
+            
+        }
+    }
     
     
 

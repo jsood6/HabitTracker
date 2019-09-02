@@ -36,6 +36,7 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
     @IBAction func signUpButtonPressed(_ sender: Any) {
         if((usernameField.text?.isEmpty)! || passwordField.text!.isEmpty){
             print("empty fields....")
@@ -48,9 +49,15 @@ class LoginViewController: UIViewController {
                     self.db.collection("users").document(self.usernameField.text!).setData([
                         "name": self.usernameField.text,
                         "habits":[
-                            "Workout":0,
-                            "CS 603 homework":0,
-                            "Dance Practice":2
+                            "Workout":[
+                                "completionValue":"2",
+                                "goal":"2"],
+                            "CS 603 homework":[
+                                "completionValue":"3",
+                                "goal":"5"],
+                            "Dance Practice":[
+                                "completionValue":"1",
+                                "goal":"2"]
                         ]
                         
                         

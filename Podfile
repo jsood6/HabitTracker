@@ -12,6 +12,7 @@ target 'HabitTracker' do
   pod 'Firebase/Storage'
   pod 'Firebase/Database'
   pod 'Firebase/InAppMessaging'
+  pod 'Charts'
 
   target 'HabitTrackerTests' do
     inherit! :search_paths

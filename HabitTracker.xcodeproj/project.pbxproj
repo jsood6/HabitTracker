@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		4034193A1DC9D475D7E19FAD /* Pods_HabitTrackerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F278E045FA71F3EAC1D633 /* Pods_HabitTrackerUITests.framework */; };
+		526E6550231CA19F0070367D /* HabitsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E654F231CA19F0070367D /* HabitsDetailViewController.swift */; };
+		526E6552231D1CE00070367D /* GraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E6551231D1CE00070367D /* GraphViewController.swift */; };
+		526E6554231D47420070367D /* AddHabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 526E6553231D47420070367D /* AddHabitViewController.swift */; };
 		52F8F173231C5C6D005B4F4A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F8F172231C5C6D005B4F4A /* AppDelegate.swift */; };
 		52F8F178231C5C6D005B4F4A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52F8F176231C5C6D005B4F4A /* Main.storyboard */; };
 		52F8F17A231C5C70005B4F4A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52F8F179231C5C70005B4F4A /* Assets.xcassets */; };
@@ -44,6 +47,9 @@
 		117B2C062B2092C733012B3E /* Pods-HabitTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitTracker.debug.xcconfig"; path = "Target Support Files/Pods-HabitTracker/Pods-HabitTracker.debug.xcconfig"; sourceTree = "<group>"; };
 		282846417547E887B43FF0A6 /* Pods_HabitTrackerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HabitTrackerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		419D5CD6F460DC484888515D /* Pods-HabitTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HabitTracker.release.xcconfig"; path = "Target Support Files/Pods-HabitTracker/Pods-HabitTracker.release.xcconfig"; sourceTree = "<group>"; };
+		526E654F231CA19F0070367D /* HabitsDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsDetailViewController.swift; sourceTree = "<group>"; };
+		526E6551231D1CE00070367D /* GraphViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewController.swift; sourceTree = "<group>"; };
+		526E6553231D47420070367D /* AddHabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitViewController.swift; sourceTree = "<group>"; };
 		52F8F16F231C5C6D005B4F4A /* HabitTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HabitTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52F8F172231C5C6D005B4F4A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		52F8F177231C5C6D005B4F4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -145,6 +151,9 @@
 				52F8F1A2231C66DB005B4F4A /* LoginViewController.swift */,
 				52F8F1A8231C7201005B4F4A /* HomePageViewController.swift */,
 				52F8F1AA231C77A5005B4F4A /* HabitCell.swift */,
+				526E654F231CA19F0070367D /* HabitsDetailViewController.swift */,
+				526E6551231D1CE00070367D /* GraphViewController.swift */,
+				526E6553231D47420070367D /* AddHabitViewController.swift */,
 			);
 			path = HabitTracker;
 			sourceTree = "<group>";
@@ -350,6 +359,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-HabitTracker/Pods-HabitTracker-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/Charts/Charts.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -363,6 +373,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Charts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -430,7 +441,10 @@
 				52F8F1A3231C66DB005B4F4A /* LoginViewController.swift in Sources */,
 				52F8F173231C5C6D005B4F4A /* AppDelegate.swift in Sources */,
 				52F8F1AB231C77A5005B4F4A /* HabitCell.swift in Sources */,
+				526E6552231D1CE00070367D /* GraphViewController.swift in Sources */,
 				52F8F1A9231C7201005B4F4A /* HomePageViewController.swift in Sources */,
+				526E6550231CA19F0070367D /* HabitsDetailViewController.swift in Sources */,
+				526E6554231D47420070367D /* AddHabitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
